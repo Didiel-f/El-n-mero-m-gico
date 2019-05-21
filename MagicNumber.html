@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+	<body>
+		<div style="text-align: center; padding: 150px 0px 50px 0px;">
+			<button onclick="facil()" style="width: 300px; height: 150px;">
+				<h1>MODO FACIL</h1>
+			</button>
+		</div>
+		<div style="text-align: center; padding-top: -50px;">
+			<button onclick="dificil()" style="width: 300px; height: 150px;">
+				<h1>MODO DIFICIL</h1>
+			</button>
+		</div>
+	<script type="text/javascript">
+		function facil(){
+			var max= 100;
+			var min = 1;
+			var numero_secreto = Math.random() * (max-min) + min;
+			numero_secreto = parseInt(numero_secreto);
+
+			var mensaje = "Ingresa un número para adivinar el número mágico";
+			var intentosF = 10;
+
+			for (var i = 0; i < 10; i++) {
+				var numero_usuario = prompt(mensaje,"0");
+				numero_usuario = parseInt(numero_usuario);
+				
+				intentosF = intentosF - 1;
+				if (intentosF == 0) {
+					alert("PERDISTE CHIGÜIR@! JAJAJAJ");
+				}
+				if (numero_usuario === numero_secreto) {
+					alert("Ganaste en modo facil con: " +intentosF+ " puntos");
+					break;
+				}
+
+				else if (numero_usuario === 0) {
+					break;
+				}
+
+				else if (numero_usuario > numero_secreto) {
+
+					mensaje = "El numero mágico es menor, te quedan " +intentosF+ " intentos";
+				}
+				
+				else if (numero_usuario < numero_secreto) {
+					
+					mensaje = "El numero mágico es mayor, te quedan " +intentosF+ " intentos";
+
+				}
+			}
+		}
+		function dificil(){
+			var max= 100;
+			var min = 1;
+			var numero_secreto = Math.random() * (max-min) + min;
+			numero_secreto = parseInt(numero_secreto);
+
+			var mensaje = "Ingresa un número para adivinar el número mágico";
+			var intentosD = 5;
+
+			for (var i = 0; i < 5; i++) {
+				var numero_usuario = prompt(mensaje,"0");
+				numero_usuario = parseInt(numero_usuario);
+				
+				intentosD = intentosD - 1;
+				if (intentosD == 0) {
+					alert("Has perdido en modo dificil");
+				}
+				if (numero_usuario === numero_secreto) {
+					alert("Ganaste en modo dificil con: " +intentosD+ " puntos");
+					break;
+				}
+
+				else if (numero_usuario === 0) {
+					break;
+				}
+
+				else if (numero_usuario > numero_secreto) {
+
+					mensaje = "El numero mágico es menor, te quedan " +intentosD+ " intentos";
+				}
+				
+				else if (numero_usuario < numero_secreto) {
+					
+					mensaje = "El numero mágico es mayor, te quedan " +intentosD+ " intentos";
+
+				}
+			}
+		}
+	</script>
+</body>
+</html>
